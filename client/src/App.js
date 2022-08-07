@@ -1,6 +1,7 @@
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import {BrowserRouter as Router, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import OtherPage from "./OtherPage";
 import Fib from "./Fib";
 
@@ -10,9 +11,6 @@ function App() {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
           <a
             className="App-link"
             href="https://reactjs.org"
@@ -21,11 +19,12 @@ function App() {
           >
             Learn React
           </a>
+          <Link to="/">Home</Link>
+          <Link to="/otherpage">Other Page</Link>
         </header>
-        <Link to="/otherpage">Other Page</Link>
         <div>
-          <Router exact path="/" component={Fib} />
-          <Router path="/otherpage" component={OtherPage} />
+          <Route exact path="/" component={Fib} />
+          <Route path="/otherpage" component={OtherPage} />
         </div>
       </div>
     </Router>
